@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: aquamarine;
+}
+
+.container{
+    border: 1px solid black;
+    width: 100%;
+    max-width: 720px;
+    padding: 34px;
+    background-color: white;
+    border-radius: 15px;
+}
+.content-container{
+    padding: 10px 15px 0;
+    border: 1px solid gray;
+    border-radius: 15px;
+
+}
+.content-container .typing-text{
+    max-height: 255px;
+    overflow-y: auto;
+    
+}
+.typing-text::-webkit-scrollbar{
+    width: 0;
+}
+.typing-text p{
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: justify;
+    word-break: break-all;
+}
+.typing-text p span{
+    position: relative;
+}
+
+.typing-text p span.correct{
+    color: greenyellow;
+}
+.typing-text p span.incorrect{
+    color: #cb3439;
+    background-color: #ffc0cb;
+    outline: 1px solid white;
+    border-radius: 2px;
+}
+.typing-text p span.active{
+    color: #17a3b8;
+}
+.typing-text p span.active::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #17a3b8;
+    opacity: 0;
+    animation: blink 0.5s ease-in-out infinite;
+
+}
+@keyframes blink {
+    50%{
+        opacity: 1;
+    }
+    
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    align-items: center;
+}
+.content .result-details{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 130px);
+}
+
+.result-details li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 22px;
+}
+.result-details li:not(:first-child){
+    border-left: 1px solid #ccc;
+    padding-left: 17px;
+}
+
+.result-details li p{
+    font-size: 19px;
+}
+.result-details li span{
+    font-size: 20px;
+}
+button{
+    border: none;
+    outline: none;
+    width: 105px;
+    padding: 10px 0;
+    border-radius: 5px;
+    background-color: #17a3b8;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
+}
+button:active{
+    transform: scale(0.97);
+}
+.input{
+    /* position: absolute;
+    z-index: -1;
+    opacity: 0; */
+}
